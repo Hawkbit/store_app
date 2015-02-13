@@ -1,0 +1,49 @@
+<h1> Lugnuts Product Item View</h1>
+
+<p>
+  <strong>Product Code:</strong>
+  <%= @product.productCode %>
+</p>
+ 
+<p>
+  <strong>Product Name:</strong>
+  <%= @product.productName %>
+</p>
+
+<p>
+  <strong>Product Line:</strong>
+  <%= @product.productLine %>
+</p>
+
+<p>
+  <strong>Product Scale:</strong>
+  <%= @product.productScale %>
+</p>
+
+<p>
+  <strong>Product Vendor:</strong>
+  <%= @product.productVendor %>
+</p>
+
+<p>
+  <strong>Product Description:</strong>
+  <%= @product.productDescription %>
+</p>
+
+<p>
+  <strong>Quantity in Stock:</strong>
+  <%= @product.quantityInStock %>
+</p>
+
+<p>
+  <strong>Buy Price:</strong>
+  <%= @product.buyPrice %>
+</p>
+
+<p>
+  <strong>MSRP:</strong>
+  <%= @product.MSRP %>
+</p>
+
+<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product) %>
