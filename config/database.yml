@@ -5,13 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+ adapter: mysql2
+ encoding: utf8
+ host: localhost
+ reconnect: false
+ database: lugnuts
+ pool: 5
+ username: lugnuts
+ password: bastard
+ socket: c:/xampp/mysql/mysql.sock
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+ adapter: mysql2
+ encoding: utf8
+ host: localhost
+ reconnect: false
+ database: lugnuts
+ pool: 5
+ username: lugnuts
+ password: bastard
+ socket: c:/xampp/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
