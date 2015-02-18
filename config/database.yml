@@ -3,7 +3,8 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-#
+# The import doesn't play well with sqlite3, but if you create a new mysql db on your machine, and 
+# change the necessary configurations here, this should work
 default: &default
   adapter: sqlite3
   pool: 5
