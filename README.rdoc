@@ -2,7 +2,11 @@
 Project File of Damien Pyles and Shawn Shrader
 Franklin University, 2015WI
 
+INSTALL NOTES:
 
+1. $ bundle install
+2. $ rake db:migrate
+3. $ rake db:data:load
 
 
 
