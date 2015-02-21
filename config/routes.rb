@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
+  get 'welcome/index'
+
   resources :products
 
-  root 'welcome#index'
+  root 'pages#index'
 
 end

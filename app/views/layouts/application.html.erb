@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>StoreApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<head>
+ 		<title><%= yield(:title) %> - Lugnuts</title>
+ 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   
-  <%= csrf_meta_tags %>
-</head>
-<body>
+ 		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+	</body>
 </html>
