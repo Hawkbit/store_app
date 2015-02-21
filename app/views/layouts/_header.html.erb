@@ -1,0 +1,15 @@
+<header class="nava">
+	<div>
+		<%= link_to "Lugnuts Auto Parts", root_path, id: "logo" %>
+    <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %>
+		<nav>
+			<ul class="navb">
+				<li><%= link_to "Home",     root_path %></li>
+        <li><%= link_to "Products", products_path %></li>
+        <li><%= link_to "Tips",     tips_path %></li>
+        <li><%= link_to "Contact",  contact_path %></li>
+        <li><%= link_to "About",    about_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
