@@ -1,7 +1,11 @@
 <header class="nava">
 	<div>
-		<%= link_to "Lugnuts Auto Parts", root_path, id: "logo" %>
-    <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %>
+        <div class='headerbar'><ul>
+            <li class='login'><a href=#>Login</a></li>
+            <li class='cart'><a href=#>Cart</a></ul></li>
+        </div>
+		<div class='imgContainer'><%= link_to "Lugnuts Auto Parts", root_path, id: "logo" %>
+    <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %></div>
 		<nav>
 			<ul class="navb">
 				<li><%= link_to "Home",     root_path %></li>
