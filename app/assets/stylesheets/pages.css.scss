@@ -14,7 +14,7 @@
     
      ul { 
       float:right;
-      margin-right:100px;
+      margin-right:90px;
       margin-top:5px;
       
         
@@ -69,9 +69,20 @@ nav{
     }
  
   }
+  .form-group{
+      margin-right:50px;
+  }
+  .dropdown{
+      ul{
+          background-color:blue;
+          a{
+              font-size:0.98em;
+          }
+      }
+      
     
 }
-    
+}
 
 
 
