@@ -1,14 +1,13 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-.nava{
- position:relative;
+
     
-    .headerbar {
+    header{
        position:relative;
-       width:95%;
-       height:40px;
        background-color:#c1c1c1;
        margin-right:auto;
        margin-left:auto;
@@ -16,54 +15,48 @@
      ul { 
       float:right;
       margin-right:100px;
+      margin-top:5px;
       
-        .login{background-color:#f00;}
-       
-         .cart{background-color:#2fa388;}
         
-         li{
+      li{
           display:inline;
           list-style-type:none;
-            margin:10px;
+            margin:20px;
             padding:5px;
-
-             a {
-                 text-decoration:none;
-                 margin:10px;
-                 color:white;
-                 font-weight:bold;
-                 padding:15px;
-
-             }
-
+            #login{
+                background-color:red;
+                min-width:100px;
+            }
+            #cart{
+                background-color:green;
+                min-width:100px;
+            }
+           
       }
     }
 }
-    .imgContainer{
-        width:85%;
-        margin-right:auto;
-        margin-left:auto;
     
+    #logo{
+        margin-top:50px;
         img{
             float:left;
             width:180px;
             height:128px;
-            margin:10px;
+            margin-left:100px;
 
         }
-}
+    }
 
 nav{
     background-color:blue;
     clear:both;
-    width:85%;
-    margin-right:auto;
-    margin-left:auto;
-     
+    margin-top:10px;
+    margin-right:50px;
+    margin-left:50px;
      .navb {
-         display:block;
+         display:inline;
          background-color:blue;
-
+         
         li{
             text-decoration:none;
             display:inline;
@@ -79,7 +72,7 @@ nav{
     
 }
     
-}
+
 
 
 h1 {

@@ -1,19 +1,25 @@
-<header class="nava">
-	<div>
-        <div class='headerbar'><ul>
-            <li class='login'><a href=#>Login</a></li>
-            <li class='cart'><a href=#>Cart</a></ul></li>
-        </div>
-		<div class='imgContainer'><%= link_to "Lugnuts Auto Parts", root_path, id: "logo" %>
-    <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %></div>
-		<nav>
-			<ul class="navb">
-				<li><%= link_to "Home",     root_path %></li>
+
+<div class='container'>
+        <header class='<header class="navbar navbar-fixed-top navbar-inverse">'><ul>
+            <li><a href=# id='login'class='btn btn-primary'>Login</a></li>
+            <li><a href=# id='cart' class='btn btn-primary'>Cart</a></li></ul>
+    </header></div>
+	<div class='container-fluid'><div class='row' id='logo'>
+            <div class='col-md-12'>
+                <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %></div></div></div>
+		<div class='container-fluid'><nav class='nav nav-bar-default'>
+   <ul class="navb">
+        <li><%= link_to "Home",     root_path %></li>
         <li><%= link_to "Products", products_path %></li>
         <li><%= link_to "Tips",     tips_path %></li>
         <li><%= link_to "Contact",  contact_path %></li>
         <li><%= link_to "About",    about_path %></li>
-      </ul>
+            </ul>
+      <form role='search' class='navbar-form navbar-right' >
+        <div class='form-group'>
+            <input type='text' id='search' name='search'       placeholder='Search products...' class='form-control'></div>
+          <input type='submit' name='searchbtn' id='searchbtn' class='btn btn-primary'>
+      </form>
     </nav>
-  </div>
-</header>
+</div>
+  
