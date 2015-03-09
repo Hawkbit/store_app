@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218170257) do
+ActiveRecord::Schema.define(version: 20150309181009) do
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", primary_key: "customerNumber", force: true do |t|
     t.string  "customerName",           limit: 50, null: false
@@ -45,6 +50,13 @@ ActiveRecord::Schema.define(version: 20150218170257) do
 
   add_index "employees", ["officeCode"], name: "officeCode"
   add_index "employees", ["reportsTo"], name: "reportsTo"
+
+  create_table "line_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "offices", primary_key: "officeCode", force: true do |t|
     t.string "city",         limit: 50, null: false
