@@ -1,14 +1,9 @@
 <% provide(:title, "Products") %>
 <h1>Lugnuts Product List</h1>
-<%= link_to 'New Product', new_product_path %>
 <table>
   <tr>
-    <th>Product Code</th>
     <th>Product Name</th>
     <th>Product Line</th>
-    <th>Product Scale</th>
-    <th>Product Vendor</th>
-    <th>Product Description</th>
     <th>Quantity in Stock</th>
     <th>Buy Price</th>
     <th>MSRP</th>
@@ -16,19 +11,13 @@
  
   <% @products.each do |product| %>
     <tr>
-      <td><%= product.productCode %></td>
+      
       <td><%= product.productName %></td>
       <td><%= product.productLine %></td>
-      <td><%= product.productScale %></td>
-      <td><%= product.productVendor %></td>
-      <td><%= product.productDescription %></td>
       <td><%= product.quantityInStock %></td>
       <td><%= product.buyPrice %></td>
-      <td><%= product.MSRP %></td>
-      <td><%= link_to 'Show', product_path(product) %></td>
-      <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      <td><%= link_to 'Destroy', product,
-              method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'View', product_path(product) %></td>
+      <td><%=button_to 'Add to Cart', line_items_path(product_id: product) %></td>
     </tr>
   <% end %>
 </table>
