@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
 	def index
-		@products = Product.all 
+        if params[:productLine]
+		@products = Product.where("productLine = ?", params[:productLine])
+        
+        else
+           @products = Product.all
+        end
         @cart = current_cart
 	end
 

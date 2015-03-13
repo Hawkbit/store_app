@@ -19,7 +19,7 @@
             <a href='#' data-toggle='dropdown' class='dropdown-toggle'>Products</a>
             <ul class='dropdown-menu' role='menu'>
                  <% Productline.all.each do |p| %>
-                <li><%= link_to p.productLine %></li>
+                <li><%= link_to p.productLine, products_path(:productLine => p.productLine) %></li>
                  <% end %>
                 <li><%= link_to "All Products", products_path %></li>
             </ul>
