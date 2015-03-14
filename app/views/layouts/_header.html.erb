@@ -1,13 +1,22 @@
 
 <div class='container'>
         <header class='<header class="navbar navbar-fixed-top navbar-inverse">'><ul>
-            <li><a href=# id='login'class='btn btn-primary'>Login</a></li>
+            <li>
+                <% if user_signed_in? %>
+                    Logged in as <strong><%= current_user.email %></strong>
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-primary' %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-primary'  %>
+                <% else %>
+                    <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary'  %>
+                    <%= link_to "Login", new_user_session_path, :class => 'btn btn-primary'  %>
+                <% end %>
+            </li>
             <li><%=link_to 'Cart', @cart, id:'cart', class:'btn btn-primary'%></li></ul>
     </header>
 </div>
 	<div class='container-fluid'><div class='row' id='logo'>
             <div class='col-md-12'>
-                <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), 'http://franklin.edu' %>
+                <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), root_path %>
         </div>
         </div>
 </div>

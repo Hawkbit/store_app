@@ -4,8 +4,7 @@
   <tr>
     <th>Product Name</th>
     <th>Product Line</th>
-    <th>Quantity in Stock</th>
-    <th>Buy Price</th>
+    <th>Quantity</th>
     <th>MSRP</th>
   </tr>
  
@@ -15,9 +14,9 @@
       <td><%= product.productName %></td>
       <td><%= product.productLine %></td>
       <td><%= product.quantityInStock %></td>
-      <td><%= product.buyPrice %></td>
-      <td><%= link_to 'View', product_path(product) %></td>
-      <td><%=button_to 'Add to Cart', line_items_path(product_id: product) %></td>
+      <td><%= number_to_currency(product.MSRP) %></td>
+      <td><%= button_to 'View', product_path(product) %></td>
+      <td><%= button_to 'Add to Cart', line_items_path(product_id: product) %></td>
     </tr>
   <% end %>
 </table>

@@ -4,6 +4,6 @@
 <h2>Your Cart</h2>
 <ul>
    <% @cart.line_items.each do |item| %>
-    <li><%= item.product.productName %></li>
+    <li><%= item.product.productName %><%= button_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <% end %>
 </ul>
