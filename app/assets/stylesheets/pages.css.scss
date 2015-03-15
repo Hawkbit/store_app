@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, th{
 nav{
     a{
         font-family:'Open Sans Condensed', sans-serif;
-        font-weight:bold;
+        font-weight:700;
     }
 }
 
@@ -93,12 +93,30 @@ nav{
       ul{
           background-color:blue;
           a{
-              font-size:0.98em;
+              font-size:16px;
           }
       }
       
     
 }
+}
+
+footer{
+    background-color:#c1c1c1;
+    padding:0px;
+    height:100px;
+    
+    hr
+    {
+        height:1px;
+        width:95%;
+       background:#adadad;
+        position:relative;  top:10px;}
+    
+    
+    div {
+        margin-left:50px;
+        }
 }
 
 
