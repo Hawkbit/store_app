@@ -1,3 +1,4 @@
+<div class= 'container'>
 <% provide(:title, "Products") %>
 <h1>Lugnuts Product List</h1>
 <table>
@@ -9,16 +10,18 @@
   </tr>
  
   <% @products.each do |product| %>
+    <div class= 'row'>
     <tr>
       
-      <td><%= product.productName %></td>
+        <div class='col-md-3'><td><%= product.productName %></td>       </div>
       <td><%= product.productLine %></td>
       <td><%= product.quantityInStock %></td>
       <td><%= number_to_currency(product.MSRP) %></td>
-      <td><%= button_to 'View', product_path(product) %></td>
-      <td><%= button_to 'Add to Cart', line_items_path(product_id: product) %></td>
-    </tr>
+      <td><%= link_to 'View', product_path(product), class: 'btn btn-primary'%></td>
+      <td><%= button_to 'Add to Cart', line_items_path(product_id: product), class:'btn btn-primary' %></td>
+    </tr></div>
   <% end %>
 </table>
+</div>
 
 

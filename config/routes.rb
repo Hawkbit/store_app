@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get 'contact'	=> 'pages#contact'
   get 'about'		=> 'pages#about'
   get 'welcome/index'	=> 'welcome#index'
-  get 'products/:productLine'	=> 'products#index'
-
   resources :products
   
 
