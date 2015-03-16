@@ -4,6 +4,13 @@ class Product < ActiveRecord::Base
     belongs_to :productlines
     before_destroy :ensure_not_referenced_by_any_line_item
     
+  def self.search(query)
+   
+    where("\"productName\" like ?", "%#{query}%") 
+  end
+   
+    
+    
     
     private 
         

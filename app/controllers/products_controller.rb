@@ -1,8 +1,12 @@
 class ProductsController < ApplicationController
 	def index
-        if params[:productLine]
+        
+       if params[:productLine]
         
 		@products = Product.where("\"productLine\" = ?", params[:productLine])
+        
+        elsif params[:search]
+        @products = Product.search(params[:search])
         
         else
            @products = Product.all
