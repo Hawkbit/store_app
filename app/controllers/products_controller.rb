@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 	def index
         if params[:productLine]
         
-		@products = Product.where("productLine = ?", params[:productLine])
+		@products = Product.where("\"productLine\" = ?", params[:productLine])
         
         else
            @products = Product.all
