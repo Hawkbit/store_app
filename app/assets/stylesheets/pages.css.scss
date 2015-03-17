@@ -1,9 +1,12 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700|Open+Sans+Condensed:700,300);
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 h1, h2, h3, h4, h5, h6, th{
      font-family: 'Open Sans Condensed', sans-serif;
@@ -57,8 +60,8 @@ div, p{
         margin-top:50px;
         img{
             float:left;
-            width:180px;
-            height:128px;
+            width:150px;
+            height:107px;
             margin-left:100px;
 
         }
@@ -119,6 +122,16 @@ footer{
         }
 }
 
+.social{
+    float:left;
+    width:300px;
+    height:50px;
+    margin-bottom:0px;
+    padding-top:20px;
+    li{
+        margin:5px;
+    }
+}
 
 
 h1 {

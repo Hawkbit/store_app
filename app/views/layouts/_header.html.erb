@@ -1,6 +1,18 @@
 
 <div class='container'>
-        <header class='<header class="navbar navbar-fixed-top navbar-inverse">'><ul>
+        <header class='<header class="navbar navbar-fixed-top navbar-inverse">'>
+            
+            <ul class='social'>
+                <li><a href="http://facebook.com/"><i class="fa fa-facebook"></i></a></li>
+        
+                 <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                 <li><a href="http://plus.google.com/"><i class="fa fa-google-plus"></i> </a></li>
+                <li><a href="http://tumblr.com"><i class="fa fa-tumblr"></i> </a></li>
+                <li><a href="http://pinterest.com"><i class="fa fa-pinterest"></i> </a></li>
+                <li><a href="http://youtube.com"><i class="fa fa-youtube"></i> </a></li>
+            </ul>
+            <ul>
+             
             <li>
                 <% if user_signed_in? %>
                     Logged in as <strong><%= current_user.email %></strong>
@@ -17,6 +29,7 @@
 	<div class='container-fluid'><div class='row' id='logo'>
             <div class='col-md-12'>
                 <%= link_to image_tag("logo.jpg", alt: "Lugnuts Auto Parts logo"), root_path %>
+                
         </div>
         </div>
 </div>
