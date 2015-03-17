@@ -1,10 +1,8 @@
-<h1> Lugnuts Product Item View</h1>
 
-<p>
-  <strong>Product Code:</strong>
-  <%= @product.productCode %>
-</p>
- 
+
+<div class="container">
+  <h1> Lugnuts Product Item View</h1>
+<div class ="col-sm-4">
 <p>
   <strong>Product Name:</strong>
   <%= @product.productName %>
@@ -13,16 +11,6 @@
 <p>
   <strong>Product Line:</strong>
   <%= @product.productLine %>
-</p>
-
-<p>
-  <strong>Product Scale:</strong>
-  <%= @product.productScale %>
-</p>
-
-<p>
-  <strong>Product Vendor:</strong>
-  <%= @product.productVendor %>
 </p>
 
 <p>
@@ -36,13 +24,10 @@
 </p>
 
 <p>
-  <strong>Buy Price:</strong>
-  <%= @product.buyPrice %>
-</p>
-
-<p>
   <strong>Price:</strong>
   <%= number_to_currency(@product.MSRP) %>
 </p>
 
 <%= link_to 'Back', products_path %>
+</div>
+</div>
