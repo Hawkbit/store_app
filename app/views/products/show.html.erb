@@ -41,8 +41,8 @@
 </p>
 
 <p>
-  <strong>MSRP:</strong>
-  <%= @product.MSRP %>
+  <strong>Price:</strong>
+  <%= number_to_currency(@product.MSRP) %>
 </p>
 
 <%= link_to 'Back', products_path %>
