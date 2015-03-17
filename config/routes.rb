@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'tips'		=> 'pages#tips'
   get 'contact'	=> 'pages#contact'
   get 'about'		=> 'pages#about'
+  get 'articles' => 'pages#articles'
+  get 'videos'  => 'pages#videos'
   get 'welcome/index'	=> 'welcome#index'
   resources :products
   
