@@ -37,3 +37,14 @@ body {
     width:100%;
     bottom:0;
 }
+
+
+#login-content{
+    display:none;
+    position:absolute;
+    top:24px;
+    right:0px;
+    z-index:10;
+    background-color:#d3caca;
+    padding:20px;
+}

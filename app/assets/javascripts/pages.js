@@ -3,11 +3,22 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 var ready = function(){
+    //dropdown behavior
     $('ul.navb li.dropdown').hover(function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(100).show();
   }, function() {
   $(this).find('.dropdown-menu').stop(true, true).delay(100).hide();
 });
+    
+//login
+$('#login').click(function(e){
+    e.preventDefault();
+    $('#login-content').slideToggle();
+    if ($('#login-content').is(":visible")){
+    $('#login-content').find('#user_email').focus();
+    }
+});
+    
 
     
 };
