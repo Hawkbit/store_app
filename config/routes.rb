@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :carts
 
+  
   root 'pages#index'
 
   get 'index' 	=> 'pages#index' 

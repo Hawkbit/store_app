@@ -10,7 +10,7 @@ var ready = function(){
   $(this).find('.dropdown-menu').stop(true, true).delay(100).hide();
 });
     
-//login
+//show login form
 $('#login').click(function(e){
     e.preventDefault();
     $('#login-content').slideToggle();
@@ -18,9 +18,31 @@ $('#login').click(function(e){
     $('#login-content').find('#user_email').focus();
     }
 });
-    
 
+
+//make login request
+$('.actions input').click(function(e){
+  e.preventDefault();
+  alert('butt');
+  $.ajax({
+       url:'/users/sign_in.json',
+       type:'POST',
+       dataType:'json',
+       data: {"user":{"email": "therealdpyles@gmail.com", "password": "Bastard4!", commit:'Log in', remember_me:1}},
+      fail: function(msg){
+          console.log(msg);
+      }
+        
+         })
+});
     
+//make logout request
+  
+
 };
+
+     
+     
+     
 $(document).ready(ready);
 $(document).on('page:load', ready);

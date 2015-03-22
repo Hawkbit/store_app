@@ -35,14 +35,14 @@ div, p{
      ul { 
       float:right;
       margin-right:90px;
-      margin-top:5px;
+      padding-bottom:0px;
       position:relative;
+      top:15px;
         
       li{
           display:inline;
           list-style-type:none;
-            margin:20px;
-            padding:5px;
+            margin-left:10px;
             #login{
                 background-color:red;
                 min-width:100px;
@@ -127,7 +127,7 @@ footer{
     width:300px;
     height:50px;
     margin-bottom:0px;
-    padding-top:20px;
+    padding-top:10px;
     li{
         margin:5px;
     }
