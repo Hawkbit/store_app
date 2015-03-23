@@ -27,7 +27,12 @@
                 
                 <% end %>
             
-            <li><%=link_to 'Cart', @cart, id:'cart', class:'btn btn-primary'%></li></ul>
+            <li><%=link_to "Cart (#{@cart.line_items.count})" , @cart, id:'cart', class:'btn btn-primary'%>
+               
+                <%=hidden_div_if(@cart.line_items.empty?, id: 'cart_view') do %>
+                <%= render @cart %><% end %> 
+                </li></ul>
+            
     </header>
 </div>
 	<div class='container-fluid'><div class='row' id='logo'>

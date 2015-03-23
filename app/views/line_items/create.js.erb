@@ -1,0 +1,9 @@
+$('#cart_view').show('blind', 1000);
+
+$('#cart_view').html("<%=j render @cart %>");
+
+
+$('#cart').html("Cart (<%= item_count(@cart) %>)");
+
+$('#current_item').css({'background-color': '#ebebeb'}).
+        animate({'background-color':'#c1c1c1'}, 1000);
