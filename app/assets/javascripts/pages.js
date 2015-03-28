@@ -10,6 +10,10 @@ var ready = function(){
   $(this).find('.dropdown-menu').stop(true, true).delay(100).hide();
 });
     
+
+
+    
+    
 //show login form
 $('#login').click(function(e){
     e.preventDefault();

@@ -5,4 +5,6 @@ class LineItem < ActiveRecord::Base
     def total_price
         product.MSRP * quantity
     end 
+    
+    
 end

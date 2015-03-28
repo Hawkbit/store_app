@@ -48,3 +48,57 @@ body {
     background-color:#d3caca;
     padding:20px;
 }
+
+
+#cart_view{
+    h2{
+        display:block;
+        padding:0px;
+        margin-bottom:0px;
+        width:150px;
+    }
+    
+    #hidecart{
+        float:right;
+        display:inline;
+        padding:5px;
+        width:100px;
+        background-color:inherit;
+        
+    }
+     .cart-buttons{
+        display:inline-block;
+         float:left;
+        font-size:1em;
+        margin:5px;
+       width:100px;
+         letter-spacing:2px;
+    }
+    
+    display:none;
+    font-size:0.85em;
+    position:absolute;
+    top:35px;
+    right:5px;
+    z-index:12;
+    background-color:#d6c9c9;
+    padding:10px;
+    width:450px;
+    
+   
+}
+
+#cart-content{
+    overflow-y:scroll;
+    max-height:150px;
+    width:400px;
+    
+}
+
+
+    
+    
+    
+    
+    
+

@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 	end
 
 	def show
+        @cart = current_cart
 		@product = Product.find(params[:id])
 	end
 
