@@ -1,5 +1,6 @@
-$('#cart_view').show('blind', 1000);
-
+if ($('#cart_view tr').size() < 3){
+$('#cart_view').fadeIn().delay(2000).fadeOut();
+}
 $('#cart_view').html("<%=j render @cart %>");
 
 

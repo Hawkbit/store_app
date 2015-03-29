@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {sessions: 'sessions'}
+  resources :orders
+
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   
   resources :line_items
 

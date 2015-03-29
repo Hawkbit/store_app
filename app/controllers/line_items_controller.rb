@@ -63,8 +63,10 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item.destroy
+    @cart = current_cart
     respond_to do |format|
       format.html { redirect_to current_cart }
+      format.js 
       format.json { head :no_content }
     end
   end

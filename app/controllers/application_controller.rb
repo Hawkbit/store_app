@@ -12,6 +12,6 @@ private
             session[:cart_id] = cart.id
             cart 
         end
-
+   
 
 end

@@ -9,6 +9,10 @@
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
+      <input name="authenticity_token" 
+               id='token'
+               type="hidden" 
+               value="<%= form_authenticity_token %>"/>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -18,7 +22,7 @@
     </div>
   <% end -%>
 
-  <div class="actions">
+  <div class="actions login">
     <%= f.submit "Log in" %>
   </div>
 <% end %>

@@ -42,11 +42,12 @@ body {
 #login-content{
     display:none;
     position:absolute;
-    top:32px;
-    right:5px;
+    top:36px;
+    left:33px;
     z-index:10;
     background-color:#d3caca;
     padding:20px;
+    box-shadow: 3px 3px 3px #afaeae;
 }
 
 
@@ -78,13 +79,13 @@ body {
     display:none;
     font-size:0.85em;
     position:absolute;
-    top:35px;
-    right:5px;
+    top:37px;
+    right:0px;
     z-index:12;
     background-color:#d6c9c9;
     padding:10px;
     width:450px;
-    
+    box-shadow: 3px 3px 3px #afaeae;
    
 }
 

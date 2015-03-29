@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322175204) do
+ActiveRecord::Schema.define(version: 20150328205344) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150322175204) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
+    t.integer  "order_id"
   end
 
   create_table "offices", primary_key: "officeCode", force: true do |t|
@@ -70,32 +71,13 @@ ActiveRecord::Schema.define(version: 20150322175204) do
     t.string "territory",    limit: 10, null: false
   end
 
-  create_table "orderdetails", id: false, force: true do |t|
-    t.integer "orderNumber",                null: false
-    t.string  "productCode",     limit: 15, null: false
-    t.integer "quantityOrdered",            null: false
-    t.float   "priceEach",                  null: false
-    t.integer "orderLineNumber", limit: 2,  null: false
-  end
-
-  add_index "orderdetails", ["productCode"], name: "productCode"
-
-  create_table "orders", primary_key: "orderNumber", force: true do |t|
-    t.date    "orderDate",                 null: false
-    t.date    "requiredDate",              null: false
-    t.date    "shippedDate"
-    t.string  "status",         limit: 15, null: false
-    t.text    "comments"
-    t.integer "customerNumber",            null: false
-  end
-
-  add_index "orders", ["customerNumber"], name: "customerNumber"
-
-  create_table "payments", id: false, force: true do |t|
-    t.integer "customerNumber",            null: false
-    t.string  "checkNumber",    limit: 50, null: false
-    t.date    "paymentDate",               null: false
-    t.float   "amount",                    null: false
+  create_table "orders", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "productlines", force: true do |t|
