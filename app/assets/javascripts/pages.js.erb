@@ -43,7 +43,7 @@ $('#login').click(function(e){
 
 
 $('#login-content .actions input').click(function(e){
-    e.preventDefault();
+  e.preventDefault();
   var email = $('#user_email').val();
   var password = $('#user_password').val();
   var token = $('#token').val();
@@ -55,7 +55,9 @@ $('#login-content .actions input').click(function(e){
        data: {"user":{"email": email, "password": password, commit:'Log in', remember_me:1,"authenticity_token":token}},
       statusCode: {
           401: function(){
+              
               $('#login-fail').text('Invalid username/password');
+              $('#user_password').val('');
           }
       }
    
