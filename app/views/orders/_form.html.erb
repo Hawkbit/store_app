@@ -29,6 +29,9 @@
                 prompt: 'Select a payment method'%>
   </div>
   <div class="actions">
-    <%= f.submit  'Place Order' %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Purchase at Lugnuts"
+          data-amount="500"></script>
   </div>
 <% end %>
