@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
-	def index
+ 
+    before_filter :assign_variable
+
+	
+    def index
         
        if params[:productLine]
         
@@ -13,11 +17,11 @@ class ProductsController < ApplicationController
            @products = Product.all
            @title =  "Showing all products"
         end
-        @cart = current_cart
+        
 	end
 
 	def show
-        @cart = current_cart
+        
 		@product = Product.find(params[:id])
 	end
 
@@ -56,6 +60,13 @@ class ProductsController < ApplicationController
 		redirect_to products_path
 	end
 	private
+
+
+	def assign_variable
+   	@cart = current_cart
+	end
+
+
 	def product_params
 		params.require(:product).permit(:productCode, :productName, 
 			:productLine, :productScale, :productVendor, :productDescription, 
