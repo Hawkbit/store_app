@@ -41,6 +41,8 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 4.3.0'
 
 gem 'stripe'
+
+gem 'cancancan', '~> 1.10'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
