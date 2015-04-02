@@ -1,4 +1,6 @@
 <%= form_for(@order) do |f| %>
+<fieldset>
+    <legend>Please Enter Your Details</legend>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -37,5 +39,6 @@
           data-amount="<%=@cart.total_price* 100%>"></script>
         
   </div>
+</fieldset>
   
 <% end %>
