@@ -13,7 +13,8 @@
 			</ul>
 		</div>
 	<% end %>
-
+	<div class="container">
+	<div class="col-sm-2">
 	<p>
 		<%= f.label :Product_Code %><br>
 		<%= f.text_field :productCode %>
@@ -34,6 +35,8 @@
 		<%= f.label :productVendor %><br>
 		<%= f.text_field :productVendor %>
 	</p>
+	</div>
+	<div class="col-sm-2">
 		<p>
 		<%= f.label :productDescription %><br>
 		<%= f.text_field :productDescription %>
@@ -53,4 +56,8 @@
 	<p>
 		<%= f.submit %>
 	</p>
+
+	</div>
+	</div>
+
 <% end %>
