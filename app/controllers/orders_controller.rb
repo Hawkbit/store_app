@@ -30,24 +30,41 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    
-    @order.add_line_items_from_cart(current_cart)
-    respond_to do |format|
-        if @order.save
-            Cart.destroy(session[:cart_id])
-            session[:cart_id] = nil
-            format.html{redirect_to root_url, notice: 'Thank you for your order.'}
-            format.json {render json: @order, status: :created, 
-                location: @order}
-        else 
-            @cart = current_cart
-            format.html {render action: "new"}
-            format.json {render json: @order.errors, 
-                status: :unprocessable_entity}
-        end 
-    end 
-  end 
+    @cart = current_cart
+     @order = Order.new(order_params)
+     @order.add_line_items_from_cart(@cart)
+     @order.card_token = params[:stripeToken]
+      customer = Stripe::Customer.create(
+        :email => @order.email,
+        :card  => @order.card_token
+      )
+
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @cart.total_price.to_i,
+        :description => 'Lugnuts Purchase',
+        :currency    => 'usd'
+      )
+      respond_to do |format|
+      if @order.save
+          Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil
+        format.html { redirect_to(root_url, :notice => 
+          'Thank you for your order.') }
+        format.xml  { render :xml => @order, :status => :created,
+          :location => @order }
+      else
+        @cart = current_cart
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @order.errors,
+          :status => :unprocessable_entity }
+      
+       end 
+     end 
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      render :new
+end
   
 
   def update
@@ -66,7 +83,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :card_token)
     end
 
     def stripe_params
