@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
+        authorize! :edit, @product
 	end
 
 	def create

@@ -4,8 +4,10 @@ class OrdersController < ApplicationController
   respond_to :html
 
   def index
+    authorize! :index, Order
     @orders = Order.all
     respond_with(@orders)
+    
   end
 
   def show
