@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => @cart.total_price.to_i,
+        :amount      => (@cart.total_price*100).to_i,
         :description => 'Lugnuts Purchase',
         :currency    => 'usd'
       )
