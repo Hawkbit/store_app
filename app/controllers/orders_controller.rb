@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :fill_order, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    authorize! :show, Order
     respond_with(@order)
   end
 
@@ -76,6 +77,18 @@ end
     @order.destroy
     respond_with(@order)
   end
+    
+  def fill_order
+      authorize! :update, Order
+      @order.status = 'Shipped'
+      @order.subtract_order_from_stock
+      if @order.save
+          redirect_to orders_path, :notice => "Order status changed to 'shipped'!"
+      else 
+          render :show, :notice => "Something went wrong"
+    end 
+      
+  end 
 
   private
     def set_order
@@ -83,7 +96,7 @@ end
     end
 
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :card_token)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :card_token, :status)
     end
 
     def stripe_params

@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 	validates :productCode, presence: true
     has_many :line_items
+    has_many :orders, through: :line_items
     belongs_to :productlines
     before_destroy :ensure_not_referenced_by_any_line_item
     
@@ -9,7 +10,12 @@ class Product < ActiveRecord::Base
     where("\"productName\" like ?", "%#{query}%") 
   end
    
-    
+ def change_stock(amount)
+     if self.quantityInStock > amount
+     self.quantityInStock = self.quantityInStock - amount
+     end 
+   end 
+     
     
     
     private 

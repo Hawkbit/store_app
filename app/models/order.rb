@@ -13,7 +13,20 @@ class Order < ActiveRecord::Base
         end 
     end 
         
-  
-        
+    def order_total
+        total = 0
+        self.line_items.each do |item|
+            total += item.quantity * item.product.MSRP
+        end 
+        total
+      end 
+   def subtract_order_from_stock
+       self.line_items.each do |item|
+           product = Product.find(item.product.id)
+           product.change_stock(item.quantity)
+           product.save
+        end 
+       end
+           
      
 end
