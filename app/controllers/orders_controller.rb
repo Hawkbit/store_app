@@ -79,15 +79,20 @@ end
   end
     
   def fill_order
+      fill_order = true
       authorize! :update, Order
-      @order.status = 'Shipped'
-      @order.subtract_order_from_stock
-      if @order.save
+      if @order.subtract_order_from_stock && @order.status == 'pending'
+          @order.status = 'Shipped'
+       else 
+         fill_order = false
+       end 
+      
+      if @order.save && fill_order
           redirect_to orders_path, :notice => "Order status changed to 'shipped'!"
       else 
-          render :show, :notice => "Something went wrong"
-    end 
-      
+          flash.now[:error] = "Not enough product to fill order or order has been shipped already"
+          render :show
+      end
   end 
 
   private

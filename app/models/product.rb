@@ -13,7 +13,10 @@ class Product < ActiveRecord::Base
  def change_stock(amount)
      if self.quantityInStock > amount
      self.quantityInStock = self.quantityInStock - amount
-     end 
+     
+     else
+       false
+    end
    end 
      
     
