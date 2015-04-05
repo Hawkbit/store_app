@@ -2,6 +2,9 @@ development:
   SENDGRID_USERNAME: HowardSnowden  
   SENDGRID_PASSWORD: Bastard4224!
   SENDGRID_DOMAIN:   localhost:3000
+  stripe_publishable_key: pk_test_sL0dMDZV5OyGHQ4WZhHsv7jK
+  stripe_secret_key: sk_test_tWxvZ4QdMcnmupgRj70Q7i28
+  
 production:
   SENDGRID_USERNAME: HowardSnowden  
   SENDGRID_PASSWORD: Bastard4224!
