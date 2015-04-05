@@ -31,7 +31,9 @@
                
    
                 <div id='cart_view'><%= render @cart %></div> 
-                </li><%end%></ul>
+                </li><%end%>
+            
+           <%if user_signed_in? && current_user.admin == true %> <%=render 'layouts/admin_buttons'%><%end%></ul>
             
     </header>
 </div>

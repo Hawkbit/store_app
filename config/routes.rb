@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :orders
   put 'fill_order/:id', to: 'orders#fill_order', as: 'fill_order'
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', passwords: 'passwords'}
   
   resources :line_items
 

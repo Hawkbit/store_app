@@ -170,7 +170,28 @@ text-align: center;
     }
     
  }
+
+#admin-actions{
+    
+    a{text-decoration:none;}
+    ul{background-color:#a8a8e0;
+    
+    a:hover {
+        background-color:blue;
+        color:white;
+    }
+    }
+}
+
     
 
 
 
+
+.notice {
+    margin-left:275px;
+    background-color:#c4d8dd;
+    width:450px;
+    padding:5px;
+    text-align:left;
+}

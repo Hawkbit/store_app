@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :fill_order, :edit, :update, :destroy]
-
   respond_to :html
 
   def index
@@ -16,12 +15,19 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @redirect_vars = {sendto:'', message: ''}
     @cart = current_cart
     
-    if @cart.line_items.empty?
-        redirect_to root_url, notice: "Your cart is empty"
-        return 
+    if !(order_request_proper?)
+        redirect_to @redirect_vars[:sendto], notice: @redirect_vars[:message]
+        session[:last_action] = "/orders/new"
+        return
     end 
+    
+#    if @cart.line_items.empty?
+#        redirect_to root_url, notice: "Your cart is empty"
+#        return 
+#    end 
       @order = Order.new
     respond_to do |format|
         format.html
@@ -52,8 +58,9 @@ class OrdersController < ApplicationController
       if @order.save
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
+          UserMailer.order_email(current_user, @order).deliver
         format.html { redirect_to(root_url, :notice => 
-          'Thank you for your order.') }
+          "Thank you for your order. An confirmation e-mail has been sent to #{current_user.email} ") }
         
       else
         @cart = current_cart
@@ -77,7 +84,21 @@ end
     @order.destroy
     respond_with(@order)
   end
-    
+
+  def order_request_proper?
+      
+      if @cart.line_items.empty?
+          @redirect_vars[:sendto] = root_url
+          @redirect_vars[:message] = 'Your cart is empty'
+        return false
+      elsif  !(user_signed_in?)
+          @redirect_vars[:sendto] = new_user_session_path
+          @redirect_vars[:message] = 'You must sign in to place your order'
+        return false
+      end 
+        true
+    end
+      
   def fill_order
       fill_order = true
       authorize! :update, Order
@@ -107,4 +128,6 @@ end
     def stripe_params
       params.permit :stripeEmail, :stripeToken
     end
+    
+
 end

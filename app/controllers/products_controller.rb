@@ -26,15 +26,18 @@ class ProductsController < ApplicationController
 	end
 
 	def new
+        authorize! :new, Product
 		@product = Product.new
 	end
 
 	def edit
+        authorize! :edit, Product
 		@product = Product.find(params[:id])
         authorize! :edit, @product
 	end
 
 	def create
+        authorize! :create, Product
 		@product = Product.new(product_params)
 
 		if @product.save
@@ -45,6 +48,7 @@ class ProductsController < ApplicationController
 	end
 
 	def update
+        authorize! :update, Product
 		@product = Product.find(params[:id])
 
 		if @product.update(product_params)
@@ -55,6 +59,7 @@ class ProductsController < ApplicationController
 	end
 
 	def destroy
+        authorize! :destroy, Product
 		@product = Product.find(params[:id])
 		@product.destroy
 
