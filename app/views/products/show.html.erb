@@ -25,7 +25,8 @@
       <strong>Price:</strong>
       <%= number_to_currency(@product.MSRP) %>
     </p>
-
+    <%= button_to 'Add to Cart', line_items_path(product_id: @product.id), class:'btn btn-primary', remote: true %>
+    </br>
     <%= link_to 'Back to Product List', products_path %>
     </br><hr>
     <% if can? :create, @product %>
